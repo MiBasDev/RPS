@@ -2,46 +2,36 @@ from GameAction import *
 from GameResult import *
 
 Victories = {
-    GameAction.Rock: GameAction.Paper,
-    GameAction.Paper: GameAction.Scissors,
-    GameAction.Scissors: GameAction.Rock
+    GameAction.Rock: GameAction.Scissors,
+    GameAction.Paper: GameAction.Rock,
+    GameAction.Scissors: GameAction.Paper
+}
+
+ActionMessages = {
+    (GameAction.Rock, GameAction.Scissors): "Rock smashes scissors",
+    (GameAction.Paper, GameAction.Rock): "Paper covers rock",
+    (GameAction.Scissors, GameAction.Paper): "Scissors cuts paper"
+}
+
+ResultMessages = {
+    GameResult.Tie: "User and computer picked {action}. Draw game!",
+    GameResult.Victory: "{message}. You won!",
+    GameResult.Defeat: "{message}. You lost!"
 }
 
 def assess_game(user_action, computer_action):
-    game_result = None
-
     if user_action == computer_action:
-        print(f"User and computer picked {user_action.name}. Draw game!")
-        game_result = GameResult.Tie
+        print(ResultMessages[GameResult.Tie].format(action=user_action.name))
+        return GameResult.Tie
 
-    # You picked Rock
-    elif user_action == GameAction.Rock:
-        if computer_action == GameAction.Scissors:
-            print("Rock smashes scissors. You won!")
-            game_result = GameResult.Victory
-        else:
-            print("Paper covers rock. You lost!")
-            game_result = GameResult.Defeat
+    if Victories[user_action] == computer_action:
+        message = ActionMessages[(user_action, computer_action)]
+        print(ResultMessages[GameResult.Victory].format(message=message))
+        return GameResult.Victory
 
-    # You picked Paper
-    elif user_action == GameAction.Paper:
-        if computer_action == GameAction.Rock:
-            print("Paper covers rock. You won!")
-            game_result = GameResult.Victory
-        else:
-            print("Scissors cuts paper. You lost!")
-            game_result = GameResult.Defeat
-
-    # You picked Scissors
-    elif user_action == GameAction.Scissors:
-        if computer_action == GameAction.Rock:
-            print("Rock smashes scissors. You lost!")
-            game_result = GameResult.Defeat
-        else:
-            print("Scissors cuts paper. You won!")
-            game_result = GameResult.Victory
-
-    return game_result
+    message = ActionMessages[(computer_action, user_action)]
+    print(ResultMessages[GameResult.Defeat].format(message=message))
+    return GameResult.Defeat
 
 
 def play_another_round():

@@ -1,8 +1,6 @@
-# Agente Inteligente para Piedra, Papel, Tijeras, Lagarto, Spock
+# Agente Inteligente RPSLS
 
 ## 1. Especificación del Entorno de Tareas
-
-El juego de Piedra, Papel, Tijeras (RPS) es un entorno de tareas específico que puede describirse según las propiedades indicadas en el capítulo *2.3.2 Properties of Task Environments* del libro *Artificial Intelligence: A Modern Approach* de Russell & Norvig. A continuación, especificamos estas características para RPS:
 
 | **Entorno de tareas** | **Completamente/ Parcialmente Observable** | **Agentes** | **Determinista/ Estocástico** | **Episódico/ Secuencial** | **Estático/ Dinámico** | **Discreto/ Contínuo** | **Conocido/ Desconocido** |
 |------------------------|----------------|-------------|------------------|---------------|--------------|--------------|--------------|

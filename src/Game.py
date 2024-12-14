@@ -36,6 +36,9 @@ class Game():
         }
 
     def assess_game(self, user_action, computer_action):
+        """
+        Genera el resultado de la partida
+        """
         if user_action == computer_action:
             print(self.ResultMessages[GameResult.Tie].format(action=user_action.name))
             return GameResult.Tie
@@ -51,5 +54,8 @@ class Game():
 
 
     def play_another_round(self):
+        """
+        Pregunta por consola si el jugador quiere seguir jugando
+        """
         another_round = input("\nAnother round? (y/n): ")
         return another_round.lower() == 'y'

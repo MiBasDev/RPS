@@ -28,6 +28,14 @@ def test_draw(game):
     assert GameResult.Tie == game.assess_game(
         user_action=GameAction.Paper,
         computer_action=GameAction.Paper)
+    
+    assert GameResult.Tie == game.assess_game(
+        user_action=GameAction.Lizard,
+        computer_action=GameAction.Lizard)
+    
+    assert GameResult.Tie == game.assess_game(
+        user_action=GameAction.Spock,
+        computer_action=GameAction.Spock)
 
 @pytest.mark.rock
 def test_rock_loses(game):

@@ -24,3 +24,5 @@
 
 ### Estructura del Agente:
 Es un agente reactivo basado en modelos ya que utiliza memoria para construir un modelo del comportamiento del oponente y toma decisiones inmediatas basadas en este modelo, sin planificación a largo plazo ni optimización compleja de utilidad.
+
+![Agente reactivo basado en modelos](doc/MiguelBG-Agente-reactivo-basado-en-modelos.png)

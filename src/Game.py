@@ -5,14 +5,28 @@ class Game():
     def __init__(self):
         self.Victories = {
             GameAction.Rock: GameAction.Scissors,
+            GameAction.Rock: GameAction.Lizard,
             GameAction.Paper: GameAction.Rock,
-            GameAction.Scissors: GameAction.Paper
+            GameAction.Paper: GameAction.Spock,
+            GameAction.Scissors: GameAction.Paper,
+            GameAction.Scissors: GameAction.Lizard,
+            GameAction.Lizard: GameAction.Spock,
+            GameAction.Lizard: GameAction.Paper,
+            GameAction.Spock: GameAction.Scissors,
+            GameAction.Spock: GameAction.Rock,
         }
 
         self.ActionMessages = {
             (GameAction.Rock, GameAction.Scissors): "Rock smashes scissors",
+            (GameAction.Rock, GameAction.Lizard): "Rock crushes lizard",
             (GameAction.Paper, GameAction.Rock): "Paper covers rock",
-            (GameAction.Scissors, GameAction.Paper): "Scissors cuts paper"
+            (GameAction.Paper, GameAction.Spock): "Paper disproves spock",
+            (GameAction.Scissors, GameAction.Paper): "Scissors cuts paper",
+            (GameAction.Scissors, GameAction.Lizard): "Scissors decapitates lizard",
+            (GameAction.Lizard, GameAction.Spock): "Lizard poisons spock",
+            (GameAction.Lizard, GameAction.Paper): "Lizard eats paper",
+            (GameAction.Spock, GameAction.Scissors): "Spock smashes scissors",
+            (GameAction.Spock, GameAction.Rock): "Spock vaporizes rock",
         }
 
         self.ResultMessages = {
@@ -26,7 +40,7 @@ class Game():
             print(self.ResultMessages[GameResult.Tie].format(action=user_action.name))
             return GameResult.Tie
 
-        if self.Victories[user_action] == computer_action:
+        if (user_action, computer_action) in self.ActionMessages:
             message = self.ActionMessages[(user_action, computer_action)]
             print(self.ResultMessages[GameResult.Victory].format(message=message))
             return GameResult.Victory

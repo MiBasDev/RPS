@@ -4,12 +4,12 @@
 
 | **Entorno de tareas** | **Completamente/ Parcialmente Observable** | **Agentes** | **Determinista/ Estocástico** | **Episódico/ Secuencial** | **Estático/ Dinámico** | **Discreto/ Contínuo** | **Conocido/ Desconocido** |
 |------------------------|----------------|-------------|------------------|---------------|--------------|--------------|--------------|
-| **RPSLS**             | Parcialmente   | Multi-agente | Determinista    | Secuencial     | Estático     | Discreto     | Conocido    |
+| **RPSLS**             | Parcialmente   | Multi-agente | No determinista    | Secuencial     | Estático     | Discreto     | Conocido    |
 
 ### Justificación de las características:
 - **Observable:** El juego es parcialmente observable ya que cada jugador conoce su propia acción, pero no la del contrincante hasta que se resuelve la partida.
 - **Agentes:** Es un entorno multi-agente porque participan dos jugadores.
-- **Determinista:** El entorno es determinista porque el resultado está completamente determinado por las acciones de los jugadores, sin elementos de azar.
+- **No determinista:** El entorno es no determinista porque el resultado puede variar según las acciones de los jugadores.
 - **Secuencial:** El agente tiene memoria y utiliza el historial de partidas anteriores para tomar decisiones. Las acciones actuales dependen de estados previos, lo que hace que las partidas no sean independientes.
 - **Estático:** El entorno no cambia durante una partida, y las decisiones de los jugadores no están afectadas por elementos externos.
 - **Discreto:** Las acciones disponibles (piedra, papel, tijeras, lagarto, Spock) son discretas y limitadas.

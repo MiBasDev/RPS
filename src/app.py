@@ -18,7 +18,7 @@ def main():
         result = game.assess_game(user_action, computer_action)
 
         # Guardar en el historial
-        agent.update_history(user_action, result)
+        agent.update_history(computer_action, result, user_action)
 
         if not game.play_another_round():
             break

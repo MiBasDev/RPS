@@ -19,7 +19,7 @@ def get_computer_action(agent):
     # El seleccionar jugada en base a la predicción
     computer_action = agent.get_best_counter_action(predicted_action)
 
-    print(f"[Agent predict: {predicted_action.name} -> Counter: {computer_action.name}]")
+    #print(f"[Agent predict: {predicted_action.name} -> Counter: {computer_action.name}]")
     print(f"Computer picked {computer_action.name}.")
 
     return computer_action

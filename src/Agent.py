@@ -1,3 +1,4 @@
+import random
 from GameAction import GameAction
 from GameResult import GameResult
 from Game import Game
@@ -30,8 +31,8 @@ class Agent():
                 result = self.result_history[action]
                 score = (
                     count * 2  # Frecuencia base
-                    - result["losses"]  # Penalizar si hemos perdido mucho contra esta
-                    + result["wins"]  # Favorecer si ganamos contra esta
+                    - result["losses"] * 1.5  # Penalizar si hemos perdido mucho contra esta
+                    + result["wins"] * 1.2 # Favorecer si ganamos contra esta
                 )
                 action_probabilities[action] = max(score, 1)  # Evitar puntuación 0
             else:
@@ -45,22 +46,24 @@ class Agent():
         """
         Retorna la jugada que vence contra la acción predicha.
         """
-        for agent_action, winning_action in Game().Victories.items():
-            if winning_action == predicted_action:
-                return agent_action
+        for agent_action, winning_actions in Game().Victories.items():
+            if predicted_action in winning_actions:
+                return random.choice(winning_actions)
         return self.default_action 
 
-    def update_history(self, player_action, result):
+    def update_history(self, agent_action, result):
         """
         Actualiza el historial del jugador y los resultados de la partida.
         """
-        if player_action in self.action_history:
-            self.action_history[player_action] += 1
+        if agent_action in self.action_history:
+            self.action_history[agent_action] += 1
 
         # Actualizar resultados
-        if result == GameResult.Victory:
-            self.result_history[player_action]["wins"] += 1
-        elif result == GameResult.Defeat:
-            self.result_history[player_action]["losses"] += 1
+        if result == GameResult.Defeat:
+            self.result_history[agent_action]["wins"] += 1
+        elif result == GameResult.Victory:
+            self.result_history[agent_action]["losses"] += 1
         elif result == GameResult.Tie:
-            self.result_history[player_action]["ties"] += 1
+            self.result_history[agent_action]["ties"] += 1
+        
+        print(self.result_history)

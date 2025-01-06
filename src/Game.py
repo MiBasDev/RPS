@@ -1,5 +1,5 @@
-from GameAction import *
-from GameResult import *
+from src.GameAction import *
+from src.GameResult import GameResult
 
 class Game():
     def __init__(self):

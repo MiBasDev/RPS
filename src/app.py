@@ -1,6 +1,6 @@
 from Game import Game
 from GameAction import *
-from Agent import *
+from Agent import Agent
 
 def main():
     game = Game()

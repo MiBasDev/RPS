@@ -1,7 +1,7 @@
 import random
-from GameAction import GameAction
-from GameResult import GameResult
-from Game import Game
+from src.GameAction import GameAction
+from src.GameResult import GameResult
+from src.Game import Game
 
 class Agent():
     def __init__(self):

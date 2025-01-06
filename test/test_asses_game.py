@@ -1,6 +1,6 @@
 import pytest
 from src.Game import Game
-from src.GameAction import *
+from src.GameAction import GameAction
 from src.GameResult import GameResult
 
 @pytest.fixture
